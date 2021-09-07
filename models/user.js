@@ -15,9 +15,10 @@ const userSchema = new mongoose.Schema({
         required: true
     }
 }, {
-    timestamps: true // time stamps is used to created at and updated at
+    timestamps: true
 });
 
-const User =mongoose.model('User',userSchema);
 
-module.exports =User;
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
