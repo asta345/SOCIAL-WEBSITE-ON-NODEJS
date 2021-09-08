@@ -10,17 +10,18 @@
   "keywords": [
     "social"
   ],
-  "author": "CodingNinjas",
+  "author": "avi",
   "license": "ISC",
   "dependencies": {
-    "connect-mongo": "^2.0.3",
-    "cookie-parser": "^1.4.4",
-    "ejs": "^2.6.1",
+    "connect-mongo": "^4.5.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^2.7.4",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
-    "express-session": "^1.15.6",
-    "mongoose": "^5.4.6",
-    "passport": "^0.4.0",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.8",
+    "node-modules": "^0.0.1",
+    "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   }
 }
