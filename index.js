@@ -1,14 +1,14 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 9000;
+const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // used for session cookie
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-// const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
@@ -49,16 +49,16 @@ app.use(session({
     cookie: {
         maxAge: (1000 * 60 * 100)
     },
-    // store: new MongoStore(
-    //     {
-    //         mongooseConnection: db,
-    //         autoRemove: 'disabled'
+    store: new MongoStore(
+        {
+            mongooseConnection: db,
+            autoRemove: 'disabled'
         
-    //     },
-    //     function(err){
-    //         console.log(err ||  'connect-mongodb setup ok');
-    //     }
-    // )
+        },
+        function(err){
+            console.log(err ||  'connect-mongodb setup ok');
+        }
+    )
 }));
 
 app.use(passport.initialize());
@@ -67,7 +67,7 @@ app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
 app.use(flash());
-// app.use(customMware.setFlash);
+app.use(customMware.setFlash);
 
 // use express router
 app.use('/', require('./routes'));
