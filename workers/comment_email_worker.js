@@ -7,4 +7,5 @@ queue.process('emails',function(job,done){
 
 	commentsMailer.newComment(job.data);
 	done();
+	console.log('work done');
 })
